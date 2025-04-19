@@ -44,8 +44,6 @@ export async function createInvoice(formData: FormData) {
 // Use Zod to update the expected types
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
-// ...
-
 export async function updateInvoice(id: string, formData: FormData) {
   const { customerId, amount, status } = UpdateInvoice.parse({
     customerId: formData.get("customerId"),
@@ -62,7 +60,6 @@ export async function updateInvoice(id: string, formData: FormData) {
           WHERE id = ${id}
         `;
   } catch (error) {
-    // We'll log the error to the console for now
     console.error(error);
   }
 
